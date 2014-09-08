@@ -1,0 +1,12 @@
+*.pyc
+*.o
+*.bmp
+*.png
+*.jpg
+[#]*[#]*
+*~
+[#]*
+\.[#]*
+bcfr2000
+icc
+launchpad
