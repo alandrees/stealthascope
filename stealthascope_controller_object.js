@@ -4,10 +4,12 @@
  * Purpose:
  *  Defines the encapsulating stealthascope controller
  *   
- * Requires:
+ * Dependencies:
+ *  launchpad controller object
+ *  bcfr2000 controller object
  */
 
-var Stlh = Stsc || {};
+var Stlh = Stlh || {};
 
 /**\fn Stlth.StealthascopeController 
  *
@@ -35,10 +37,9 @@ Stlh.StealthascopeController = function(options)
     {
 	this.bcfr.push(new BCFR.BCFRController(BCFR2000.options, i));
     }
-
 }
 
-/**\fn Stlh.StealthascopeController.init
+/**\fn Stlh.StealthascopeController.prototype.init
  *
  * Stealthascope controller init function
  * 
@@ -47,14 +48,23 @@ Stlh.StealthascopeController = function(options)
  * @returns None
  */
 
-Stlh.StealthascopeController.init = function()
+Stlh.StealthascopeController.prototype.init = function()
 {
+    this.banks = this.banks_generator();
 
+    for(var i = 0; i < this.launchpad.length; i++)
+    {
+	this.launchpad[i].init(this.banks);
+    }
 
+    for(var i = 0; i < this.bcfr.length; i++)
+    {
+	this.bcfr[i].init(this.banks);
+    }
 }
 
 
-/**\fn Stlh.StealthascopeController.flush
+/**\fn Stlh.StealthascopeController.prototype.flush
  *
  * Stealthascope controller flush function
  *
@@ -63,14 +73,14 @@ Stlh.StealthascopeController.init = function()
  * @returns None
  */
 
-Stlh.StealthascopeController.flush = function()
+Stlh.StealthascopeController.prototype.flush = function()
 {
 
 
 }
 
 
-/**\fn Stlh.StealthascopeController.onMidi
+/**\fn Stlh.StealthascopeController.prototype.onMidi
  *
  * Stealthascope controller onMidi function
  *
@@ -79,14 +89,13 @@ Stlh.StealthascopeController.flush = function()
  * @returns None
  */
 
-Stlh.StealthascopeController.onMidi = function()
+Stlh.StealthascopeController.prototype.onMidi = function()
 {
 
 
 }
 
-
-/**\fn Stlh.StealthascopeController.exit
+/**\fn Stlh.StealthascopeController.prototype.exit
  *
  * Stealthascope controller exit function
  *
@@ -95,13 +104,41 @@ Stlh.StealthascopeController.onMidi = function()
  * @returns None
  */
 
-Stlh.StealthascopeController.exit = function()
+Stlh.StealthascopeController.prototype.exit = function()
 {
 
 
 }
 
 
+/**\fn Stlh.StealthascopeController.prototype.banks_generator
+ *
+ * Generates all the banks to be passed to the controller component objects
+ *
+ * @param None
+ *
+ * @returns None
+ */
+
+Stlh.StealthascopeController.prototype.banks_generator = function()
+{
+    var banks = {};
+    
+    banks.trackbank    = host.createMainTrackBank(this.options.tracks, 
+						  this.options.sends, 
+						  this.options.scenes);
+    
+    banks.cursortrack  = host.createCursorTrack(this.options.sends, 
+						this.options.scenes);
+    
+    banks.cursordevice = host.createCursorDevice();
+    banks.transport    = host.createTransport();
+    
+    banks.master_track = host.createMasterTrack(this.options.scenes);
+    
+    banks.application  = host.createApplication();
+    return banks;
+}
 
 /**\fn Stlh.StealthascopeController.prototype.set_options
  *
