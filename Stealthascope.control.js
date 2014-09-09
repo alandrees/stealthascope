@@ -30,13 +30,17 @@ load('stealthascope_constants.js');
 load('stealthascope_options.js');
 
 host.defineController("Stealthascope", "Stealthascope", "0.0", "C5486FC8-393D-44A2-83CF-F4B7824DB6AD");
-host.defineMidiPorts(, 2);
+host.defineMidiPorts(Stlh.options.interfaces[0],
+		     Stlh.options.interfaces[1]);
 
+//do stuff here to bind named interfaces to the right ports
+/*
 for(var pair_index in BCFR2000.options.discoveryname)
 {
     var pair_array = BCFR2000.options.discoveryname[pair_index];
     host.addDeviceNameBasedDiscoveryPair([pair_array[0]],[pair_array[1]]);
 }
+*/
 
 var controllers = new Array();
 var icc_network = new Array();
@@ -45,7 +49,7 @@ var banks = {};
 
 icc_network.push(ICC.create_new_icc_network('stealthascope'));
 
-controllers[0] = new Stlh
+controllers[0] = new Stlh.StealthascopeController(Stlh.options);
 
 
 /*************/
@@ -63,16 +67,46 @@ controllers[0] = new Stlh
 
 function init()
 {
-
+    for(var i = 0; i < controllers.length; i++)
+    {
+	controllers[i].init();	
+    }
+	
 }
 
-function onmidi()
-{
 
-
-}
+/**\fn flush
+ *
+ * wrapper function to handle flushing data to the controller
+ *
+ * @param None
+ *
+ * @returns None
+ */
 
 function flush()
 {
+    for(var i = 0; i < controllers.length; i++)
+    {
+	controllers[i].flush();
+    }
+}
 
+
+/**\fn exit
+ *
+ * wrapper function to handle the the exit event when the program exits/controller
+ * gets removed from the program
+ *
+ * @param None
+ *
+ * @returns None
+ */
+
+function exit()
+{
+    for(var i = 0; i < controllers.length; i++)
+    {
+	controllers[i].exit();
+    }    
 }
