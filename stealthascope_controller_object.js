@@ -151,9 +151,9 @@ Stlh.StealthascopeController.prototype.banks_generator = function()
 
 Stlh.StealthascopeController.prototype.set_options = function(options)
 {
-    this.options = {'inputs' : [2,2], 
-		    'bcrs'   : 1,
-		    'lps'    : 1,
+    this.options = {'interfaces' : [2,2], 
+		    'bcrs'       : 1,
+		    'lps'        : 1,
 		   };
 
     if(typeof options === 'object')

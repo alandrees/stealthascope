@@ -6,6 +6,6 @@
  */
 var Stlh = Stlh || {};
 
-Stlh.options = {'inputs' : [2,2],
-		'bcrfs'  : 1,
-		'lps'    : 1};
+Stlh.options = {'interfaces' : [2,2],
+		'bcrfs'      : 1,
+		'lps'        : 1};
