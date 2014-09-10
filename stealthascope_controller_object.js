@@ -7,6 +7,7 @@
  * Dependencies:
  *  launchpad controller object
  *  bcfr2000 controller object
+ *
  */
 
 var Stlh = Stlh || {};
@@ -22,20 +23,22 @@ var Stlh = Stlh || {};
 
 Stlh.StealthascopeController = function(options)
 {
-    this.options = this.set_options(options);
+    this.set_options(options);
     this.instance = 0;
 
     this.launchpad = new Array();
     this.bcfr = new Array();
 
+    var midi_instance = 0;
+
     for(var i = 0; i < this.options.lps; i++)
     {
-	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options, i));
+	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options, i, midi_instance++);
     }
 
     for(var i = 0; i < this.options.bcfrs; i++)
     {
-	this.bcfr.push(new BCFR.BCFRController(BCFR2000.options, i));
+	this.bcfr.push(new BCFR.BCFRController(BCFR2000.options, i, midi_instance++));
     }
 }
 
@@ -75,14 +78,23 @@ Stlh.StealthascopeController.prototype.init = function()
 
 Stlh.StealthascopeController.prototype.flush = function()
 {
+    for(var i = 0; i < this.launchpad.length; i++)
+    {
+	this.launchpad[i].flush();
+    }
 
-
+    for(var i = 0; i < this.bcfr.length; i++)
+    {
+	this.bcfr[i].flush();
+    }
 }
 
 
 /**\fn Stlh.StealthascopeController.prototype.onMidi
  *
- * Stealthascope controller onMidi function
+ * Stealthascope controller onMidi function //this is just a placeholder, 
+ * as the individual controller objects get their onmidi functions
+ * bound instead
  *
  * @param None
  *
@@ -91,7 +103,6 @@ Stlh.StealthascopeController.prototype.flush = function()
 
 Stlh.StealthascopeController.prototype.onMidi = function()
 {
-
 
 }
 
@@ -106,8 +117,15 @@ Stlh.StealthascopeController.prototype.onMidi = function()
 
 Stlh.StealthascopeController.prototype.exit = function()
 {
+    for(var i = 0; i < this.launchpad.length; i++)
+    {
+	this.launchpad[i].exit();
+    }
 
-
+    for(var i = 0; i < this.bcfr.length; i++)
+    {
+	this.bcfr[i].exit();
+    }
 }
 
 
@@ -154,6 +172,9 @@ Stlh.StealthascopeController.prototype.set_options = function(options)
     this.options = {'interfaces' : [2,2], 
 		    'bcrs'       : 1,
 		    'lps'        : 1,
+		    'tracks'     : 8,
+		    'scenes'     : 8,
+		    'sends'      : 3
 		   };
 
     if(typeof options === 'object')
