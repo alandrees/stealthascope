@@ -9,13 +9,13 @@ loadAPI(1);
  */
 
 
-load('bcfr200/bcfr2000_options.js');
-load('bcfr200/bcfr2000_controller_object.js');
-load('bcfr200/bcf2000_object.js');
-load('bcfr200/bcr2000_object.js');
-load('bcfr200/bc_controls.js');
+load('bcfr2000/bcfr2000_options.js');
+load('bcfr2000/bcfr2000_controller_object.js');
+load('bcfr2000/bcf2000_object.js');
+load('bcfr2000/bcr2000_object.js');
+load('bcfr2000/bc_controls.js');
 
-load('icc/icc.js');
+load('icc/icc_core.js');
 load('icc/icc_icc_controller.js');
 load('icc/icc_param_object.js');
 
