@@ -7,7 +7,7 @@
 var Stlh = Stlh || {};
 
 Stlh.options = {'interfaces' : [2,2],
-		'bcrfs'      : 1,
+		'bcfrs'      : 1,
 		'lps'        : 1,
 		'tracks'     : 8,
 	        'scenes'     : 8,
