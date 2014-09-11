@@ -29,7 +29,7 @@ load('stealthascope_controller_object.js');
 load('stealthascope_constants.js');
 load('stealthascope_options.js');
 
-host.defineController("Stealthascope", "Stealthascope", "0.0", "C5486FC8-393D-44A2-83CF-F4B7824DB6AD");
+host.defineController("Stealthascope", "Stealthascope", "1.0", "C5486FC8-393D-44A2-83CF-F4B7824DB6AD");
 host.defineMidiPorts(Stlh.options.interfaces[0],
 		     Stlh.options.interfaces[1]);
 
