@@ -33,13 +33,14 @@ Stlh.StealthascopeController = function(options)
 
     for(var i = 0; i < this.options.lps; i++)
     {
-	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options, i, midi_instance++);
+	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options, i, midi_instance++));
     }
 
     for(var i = 0; i < this.options.bcfrs; i++)
     {
-	this.bcfr.push(new BCFR.BCFRController(BCFR2000.options, i, midi_instance++));
+	this.bcfr.push(new BCFR2000.BCFRController(BCFR2000.options, i, midi_instance++));
     }
+
 }
 
 /**\fn Stlh.StealthascopeController.prototype.init
@@ -64,6 +65,7 @@ Stlh.StealthascopeController.prototype.init = function()
     {
 	this.bcfr[i].init(this.banks);
     }
+
 }
 
 
@@ -87,6 +89,7 @@ Stlh.StealthascopeController.prototype.flush = function()
     {
 	this.bcfr[i].flush();
     }
+
 }
 
 
@@ -126,6 +129,7 @@ Stlh.StealthascopeController.prototype.exit = function()
     {
 	this.bcfr[i].exit();
     }
+
 }
 
 
