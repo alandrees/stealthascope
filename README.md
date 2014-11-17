@@ -8,4 +8,3 @@ This controller script is dependant on the bcfr2000 script (https://github.com/a
 These are managed independantly, so they aren't submodules (they only exist in the .gitignore file), and you have to make sure they are the right version.
 
 Input 1 (input 1, output 1) is the launchpad, and input 2 (input 2, output 2) is the BCRF2000.
-
