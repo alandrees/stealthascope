@@ -1,9 +1,9 @@
 /**
  * Copyright 2014 Alan Drees
- *   
+ *
  * Purpose:
  *  Defines the encapsulating stealthascope controller
- *   
+ *
  * Dependencies:
  *  launchpad controller object
  *  bcfr2000 controller object
@@ -12,7 +12,7 @@
 
 var Stlh = Stlh || {};
 
-/**\fn Stlth.StealthascopeController 
+/**\fn Stlth.StealthascopeController
  *
  * Constructor function for the stealthascope controller object
  *
@@ -46,7 +46,7 @@ Stlh.StealthascopeController = function(options)
 /**\fn Stlh.StealthascopeController.prototype.init
  *
  * Stealthascope controller init function
- * 
+ *
  * @param None
  *
  * @returns None
@@ -95,7 +95,7 @@ Stlh.StealthascopeController.prototype.flush = function()
 
 /**\fn Stlh.StealthascopeController.prototype.onMidi
  *
- * Stealthascope controller onMidi function //this is just a placeholder, 
+ * Stealthascope controller onMidi function //this is just a placeholder,
  * as the individual controller objects get their onmidi functions
  * bound instead
  *
@@ -145,19 +145,19 @@ Stlh.StealthascopeController.prototype.exit = function()
 Stlh.StealthascopeController.prototype.banks_generator = function()
 {
     var banks = {};
-    
-    banks.trackbank    = host.createMainTrackBank(this.options.tracks, 
-						  this.options.sends, 
+
+    banks.trackbank    = host.createMainTrackBank(this.options.tracks,
+						  this.options.sends,
 						  this.options.scenes);
-    
-    banks.cursortrack  = host.createCursorTrack(this.options.sends, 
+
+    banks.cursortrack  = host.createCursorTrack(this.options.sends,
 						this.options.scenes);
-    
+
     banks.cursordevice = host.createCursorDevice();
     banks.transport    = host.createTransport();
-    
+
     banks.master_track = host.createMasterTrack(this.options.scenes);
-    
+
     banks.application  = host.createApplication();
     return banks;
 }
@@ -173,7 +173,7 @@ Stlh.StealthascopeController.prototype.banks_generator = function()
 
 Stlh.StealthascopeController.prototype.set_options = function(options)
 {
-    this.options = {'interfaces' : [2,2], 
+    this.options = {'interfaces' : [2,2],
 		    'bcrs'       : 1,
 		    'lps'        : 1,
 		    'tracks'     : 8,
@@ -189,4 +189,3 @@ Stlh.StealthascopeController.prototype.set_options = function(options)
 	}
     }
 }
-
