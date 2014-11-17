@@ -1,7 +1,7 @@
 loadAPI(1);
 /**
  * Copyright 2014 Alan Drees
- *   
+ *
  * Purpose:
  *   Stealthascope controller implementation
  *
@@ -69,9 +69,9 @@ function init()
 {
     for(var i = 0; i < controllers.length; i++)
     {
-	controllers[i].init();	
+	controllers[i].init();
     }
-	
+
 }
 
 
@@ -108,5 +108,5 @@ function exit()
     for(var i = 0; i < controllers.length; i++)
     {
 	controllers[i].exit();
-    }    
+    }
 }
