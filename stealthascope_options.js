@@ -1,6 +1,6 @@
 /**
  * Copyright 2014 Alan Drees
- *   
+ *
  * Purpose:
  *   Defines options for the Stealthascope controller
  */
