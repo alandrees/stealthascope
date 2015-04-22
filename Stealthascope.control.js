@@ -1,6 +1,6 @@
 loadAPI(1);
 /**
- * Copyright 2014 Alan Drees
+ * Copyright 2014-2015 Alan Drees
  *
  * Purpose:
  *   Stealthascope controller implementation
