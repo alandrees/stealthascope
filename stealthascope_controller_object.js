@@ -150,8 +150,8 @@ Stlh.StealthascopeController.prototype.banks_generator = function()
 						  this.options.sends,
 						  this.options.scenes);
 
-    banks.cursortrack  = host.createCursorTrack(this.options.sends,
-						this.options.scenes);
+    banks.cursortrack  = host.createArrangerCursorTrack(this.options.sends,
+							this.options.scenes);
 
     banks.cursordevice = host.createCursorDevice();
     banks.transport    = host.createTransport();
