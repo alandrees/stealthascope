@@ -34,6 +34,9 @@ Stlh.StealthascopeController = function(options)
 
     var i = 0;
 
+    Launchpad.options.tracks = options.tracks;
+    Launchpad.options.scenes = options.scenes
+
     ChannelDisplay.options.channels = Launchpad.options.tracks;
 
     for(i = 0; i < this.options.lps; i++)
