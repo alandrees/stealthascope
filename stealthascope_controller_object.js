@@ -68,12 +68,14 @@ Stlh.StealthascopeController.prototype.init = function()
 {
     this.banks = this.banks_generator();
 
-    for(var i = 0; i < this.launchpad.length; i++)
+    var i = 0;
+
+    for(i = 0; i < this.launchpad.length; i++)
     {
 	this.launchpad[i].init(this.banks);
     }
 
-    for(var i = 0; i < this.bcfr.length; i++)
+    for(i = 0; i < this.bcfr.length; i++)
     {
 	this.bcfr[i].init(this.banks);
     }
