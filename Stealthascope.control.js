@@ -25,6 +25,10 @@ load('launchpad/launchpad_grid.js');
 load('launchpad/launchpad_options.js');
 load('launchpad/launchpad_page.js');
 
+load('channel-display/channel_display_group_object.js');
+load('channel-display/channel_display_object.js');
+load('channel-display/channel_display_options.js');
+
 load('stealthascope_controller_object.js');
 load('stealthascope_constants.js');
 load('stealthascope_options.js');
