@@ -109,6 +109,10 @@ Stlh.StealthascopeController.prototype.flush = function()
 	this.bcfr[i].flush();
     }
 
+    for(var i = 0; i < this.channel_display.length; i++)
+    {
+	this.channel_display[i].flush();
+    }
 }
 
 
@@ -192,7 +196,7 @@ Stlh.StealthascopeController.prototype.banks_generator = function()
 
 Stlh.StealthascopeController.prototype.set_options = function(options)
 {
-    this.options = {'interfaces' : [2,2],
+    this.options = {'interfaces' : [2,3],
 		    'bcrs'       : 1,
 		    'lps'        : 1,
 		    'tracks'     : 8,
