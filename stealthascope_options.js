@@ -9,6 +9,7 @@ var Stlh = Stlh || {};
 Stlh.options = {'interfaces' : [2,3],
 		'bcfrs'      : 1,
 		'lps'        : 1,
+		'cds'        : 1,
 		'tracks'     : 8,
 	        'scenes'     : 8,
 	        'sends'      : 3};
