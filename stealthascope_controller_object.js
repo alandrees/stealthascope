@@ -28,6 +28,7 @@ Stlh.StealthascopeController = function(options)
 
     this.launchpad = new Array();
     this.bcfr = new Array();
+    this.channel_display = new Array();
 
     var midi_instance = 0;
 
@@ -43,6 +44,10 @@ Stlh.StealthascopeController = function(options)
 	this.bcfr.push(new BCFR2000.BCFRController(BCFR2000.options, i, midi_instance++));
     }
 
+    for(i = 0; i < this.options.cds; i++)
+    {
+	this.channel_display.push(new ChannelDisplay.ChannelDisplayGroupController(ChannelDisplay.options, i, midi_instance++));
+    }
 }
 
 /**\fn Stlh.StealthascopeController.prototype.init
