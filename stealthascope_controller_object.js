@@ -34,6 +34,8 @@ Stlh.StealthascopeController = function(options)
 
     var i = 0;
 
+    ChannelDisplay.options.channels = Launchpad.options.tracks;
+
     for(i = 0; i < this.options.lps; i++)
     {
 	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options, i, midi_instance++));
