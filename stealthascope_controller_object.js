@@ -214,3 +214,33 @@ Stlh.StealthascopeController.prototype.set_options = function(options)
 	}
     }
 }
+
+
+/**\fn Stlh.StealthascopeController.channel_display_parser
+ *
+ * Static parse method to be passed to the set_parse_func method of the ChannelDisplayGroupController object
+ *
+ * @param title (string) the title to be parsed
+ *
+ * @returns (object) representing the 4 lines which it is to be parsed into
+ */
+
+Stlh.StealthascopeController.channel_display_parser = function(title)
+{
+    var rv = {1 : '',
+	      2 : '',
+	      3 : '',
+	      4 : ''};
+
+    if(typeof title === 'string')
+    {
+	var split = title.split(';');
+
+	for(var i = 0; i < split.length; i++)
+	{
+	    rv[i] = split[i];
+	}
+    }
+
+    return rv;
+}
