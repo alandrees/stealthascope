@@ -80,6 +80,11 @@ Stlh.StealthascopeController.prototype.init = function()
 	this.bcfr[i].init(this.banks);
     }
 
+    for(i = 0; i < this.channel_display.length; i++)
+    {
+	this.channel_display[i].init(this.banks);
+	this.channel_display[i].set_parse_func(Stlh.StealthascopeController.channel_display_parser);
+    }
 }
 
 
