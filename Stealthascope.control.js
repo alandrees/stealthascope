@@ -24,6 +24,9 @@ load('launchpad/launchpad_controller_object.js');
 load('launchpad/launchpad_grid.js');
 load('launchpad/launchpad_options.js');
 load('launchpad/launchpad_page.js');
+load('launchpad/launchpad_io.js');
+load('launchpad/launchpad_util.js');
+
 
 load('channel-display/channel_display_group_object.js');
 load('channel-display/channel_display_object.js');
