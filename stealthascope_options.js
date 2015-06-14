@@ -6,6 +6,7 @@
  */
 var Stlh = Stlh || {};
 
+/*
 Stlh.options = {'interfaces' : [2,3],
 		'bcfrs'      : 1,
 		'lps'        : 1,
@@ -13,3 +14,4 @@ Stlh.options = {'interfaces' : [2,3],
 		'tracks'     : 8,
 	        'scenes'     : 8,
 	        'sends'      : 3};
+*/
