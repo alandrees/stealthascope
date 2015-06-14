@@ -46,6 +46,11 @@ Stlh.StealthascopeController = function(options)
 	this.launchpad.push(new Launchpad.LaunchpadController(Launchpad.options));
     }
 
+    for(i = 0; i < this.options.lps; i++)
+    {
+	midi_instance++;
+    }
+
     for(i = 0; i < this.options.bcfrs; i++)
     {
 	this.bcfr.push(new BCFR2000.BCFRController(BCFR2000.options, i, midi_instance++));
