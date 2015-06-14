@@ -12,6 +12,7 @@ Stlh.options = {'interfaces' : [2,3],
 		'lps'        : 1,
 		'cds'        : 1,
 		'tracks'     : 8,
+		'channels'   : 8,
 	        'scenes'     : 8,
 	        'sends'      : 3};
 */
